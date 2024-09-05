@@ -52,7 +52,7 @@ if uploaded_file and question:
     # Generate an answer using the OpenAI API.
     try:
         stream = openai.ChatCompletion.create(
-            model="gpt-4o-mini",  # Using the specified LLM model
+            model="gpt-3.5-turbo",  # Using the specified LLM model
             messages=messages,
             stream=True,
         )
