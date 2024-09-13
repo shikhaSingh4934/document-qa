@@ -25,7 +25,7 @@ prompt = st.chat_input("ask anything")
 
 
 
-# If the user has entered a prompt, process it
+# If the user has entered a prompt, process it well
 if prompt:
     # Display user's message in the chat
     with st.chat_message("user"):
@@ -55,9 +55,9 @@ if prompt:
         assistant_response = f"Error: {str(e)}"          
         
 
-    # Generate an assistant response (here it echoes the user's input)
     
-    # Display the assistant's response in the chat
+    
+    # Display the assistant's response in the chatsw
     with st.chat_message("assistant"):
         st.markdown(assistant_response)
         
@@ -67,4 +67,3 @@ if prompt:
 
 
 
-print(type(st.session_state.messages))
