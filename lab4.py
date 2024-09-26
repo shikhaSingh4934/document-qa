@@ -6,7 +6,7 @@ import os
 
 __import__('pysqlite3')
 import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3'
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 # Ensure the API keys//
 openai.api_key = st.secrets["API_KEY"]
 
