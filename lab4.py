@@ -4,7 +4,7 @@ import chromadb
 from PyPDF2 import PdfReader
 import os
 
-# Ensure the API key
+# Ensure the API keys//
 openai.api_key = st.secrets["API_KEY"]
 
 # Function to generate embeddings for a given text
