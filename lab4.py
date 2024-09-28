@@ -11,7 +11,7 @@ import os
 # Ensure the API keys//
 
 import chromadb
-openai.api_key = st.secrets["Openai"]
+openai.api_key = st.secrets["API_KEY"]
 # Function to generate embeddings for a given text
 def generate_embedding(text):
     response = openai.Embedding.create(
