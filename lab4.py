@@ -4,10 +4,10 @@ from PyPDF2 import PdfReader
 import os
 
 
-__import__('pysqlite3')
-import sys
+# __import__('pysqlite3')
+# import sys
 
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 # Ensure the API keys//
 
 import chromadb
@@ -26,7 +26,7 @@ def create_lab4_collection():
     collection = client.create_collection("Lab4Collection")
 
     # Specify the folder containing PDF files
-    pdf_folder = "C:\\Users\\Singh\\OneDrive\\Desktop\\HW2\\document-qa\\pdffolder"
+    pdf_folder = "https://drive.google.com/drive/folders/1oXwLDN7_a1Ft9Sow77n3XM5kj0Q2oUDt?usp=sharing"
     pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
 
     for pdf_file in pdf_files:
