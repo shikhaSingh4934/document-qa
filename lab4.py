@@ -1,15 +1,17 @@
 import streamlit as st
 import openai
-import chromadb
 from PyPDF2 import PdfReader
 import os
 
+
 __import__('pysqlite3')
 import sys
+
 sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 # Ensure the API keys//
-openai.api_key = st.secrets["API_KEY"]
 
+import chromadb
+openai.api_key = st.secrets["API_KEY"]
 # Function to generate embeddings for a given text
 def generate_embedding(text):
     response = openai.Embedding.create(
@@ -114,28 +116,27 @@ def chatbot_response(query):
     return assistant_response
 
 
-
+#----------------------------MAIN---------------------------------
 
 # Initialize session state for messages if not already present
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
+# Check if Lab4_vectorDB is already initialized in session state
+if "Lab4_vectorDB" not in st.session_state:
+    st.session_state.Lab4_vectorDB = create_lab4_collection()
+    
+
 # Initialize the Lab4 vector database (ChromaDB collection) if not already created
 
 st.title("Course Information Chatbot")
-
-# Check if Lab4_vectorDB is already initialized in session state
-if "Lab4_vectorDB" not in st.session_state:
-    st.write("Initializing the vector database for the first time...")
-    st.session_state.Lab4_vectorDB = create_lab4_collection()
-    st.write("Vector database created and stored in session state!")
-
-# Always display the input box for user input
-prompt = st.chat_input("Ask anything")
-    # Display the full chat history
+# Display the full chat history
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+
+# Always display the input box for user input
+prompt = st.chat_input("Ask anything")        
 
 if prompt:
     # Display user's message in the chat
