@@ -26,7 +26,7 @@ def create_lab4_collection():
     collection = client.create_collection("Lab4Collection")
 
     # Specify the folder containing PDF files
-    pdf_folder = "https://drive.google.com/drive/folders/1oXwLDN7_a1Ft9Sow77n3XM5kj0Q2oUDt?usp=sharing"
+    pdf_folder = "..\document-qa\pdffolder"
     pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
 
     for pdf_file in pdf_files:
