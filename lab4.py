@@ -26,11 +26,7 @@ def create_lab4_collection():
     collection = client.create_collection("Lab4Collection")
 
     # Specify the folder containing PDF files
-<<<<<<< HEAD
-    pdf_folder = "..\document-qa\pdffolder"
-=======
     pdf_folder = "pdffolder"
->>>>>>> d9621ec3ea508012d2c2c6922c2dcd4267c4f451
     pdf_files = [f for f in os.listdir(pdf_folder) if f.endswith(".pdf")]
 
     for pdf_file in pdf_files:
